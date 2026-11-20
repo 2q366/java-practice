@@ -23,8 +23,23 @@ echo [2/3] 本地提交...
 git commit -m "%MSG%"
 
 echo [3/3] 推送...
+echo   -- 推 GitHub（失败会自动重试 3 次，这条线路偶尔会断）...
+set /a TRY=0
+:push_gh
+set /a TRY+=1
 git push origin main
+if not errorlevel 1 goto gh_ok
+if %TRY% geq 3 goto gh_fail
+echo      第 %TRY% 次失败，3 秒后重试...
+timeout /t 3 /nobreak >nul
+goto push_gh
+:gh_fail
+echo      !! GitHub 推送失败（试了 3 次）。可能是线路抖动，过几分钟再跑一次这个脚本即可。
+:gh_ok
+
+echo   -- 推 Gitee...
 git push gitee main
+if errorlevel 1 echo      !! Gitee 推送失败，稍后重跑本脚本。如果提示 Authentication failed，说明公钥没加对。
 
 echo.
 echo ============================================
