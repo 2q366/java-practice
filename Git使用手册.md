@@ -29,9 +29,24 @@ git diff            # 具体改了哪几行（红色是删的，绿色是加的�
 
 ---
 
+## 二·五、⚠️ 你这台电脑的网络情况（重要，实测过）
+
+我实测了你电脑到 GitHub 的连通性，结论很明确：
+
+| 通道 | 状态 | 说明 |
+|---|---|---|
+| HTTPS（443 端口，浏览器/网页那种） | **不通（时通时断）** | `github.com` 这个域名的 HTTPS 会被卡住，等 10 秒也连不上 |
+| **SSH（22 端口）** | **完全通** ✅ | 我测了 `git@github.com`，服务器正常应答，只是"公钥还没上传"（这是正常的，正常就该报这个） |
+
+**所以：你这台机器推代码，一律用 SSH 方式，不要用 HTTPS 方式。**
+网上那些"改 hosts 修复 GitHub"的教程对你**没用**（我试过，改了 IP 照样不通，已经帮你把 hosts 恢复干净了）。
+`修复GitHub访问.bat` 那个脚本你可以不管它了。
+
+---
+
 ## 三、第一次绑定 GitHub（只做一次）
 
-### 方式 A：SSH 密钥（推荐，配一次以后永久免密）
+### 方式 A：SSH 密钥（**你就用这个**，配一次以后永久免密）
 
 1. 我已经帮你生成好密钥了，公钥在：
    `C:\Users\26854\.ssh\id_ed25519.pub`
@@ -47,17 +62,15 @@ git diff            # 具体改了哪几行（红色是删的，绿色是加的�
    git remote add origin git@github.com:2q366/你的仓库名.git
    ```
 
-### 方式 B：HTTPS + Token（不想配 SSH 就用这个）
+### 方式 B：HTTPS + Token（**你这台机器不要用**）
 
+> 你的网络走 HTTPS 到 github.com 不稳定，这条路会频繁失败。**优先用方式 A（SSH）。**
+
+如果哪天换了网络环境（比如在学校机房）想用 HTTPS：
 1. 打开 https://github.com/settings/tokens → **Generate new token (classic)**
 2. Note 随便写，Expiration 选 90 天，勾选 **repo** 这一项 → 生成
 3. **立刻复制那串 token**（只显示一次！）
-4. 推送时：
-   ```powershell
-   git remote add origin https://github.com/2q366/你的仓库名.git
-   git push
-   ```
-   弹窗要用户名密码时：用户名填 `2q366`，**密码填那串 token**（不是你的登录密码！）
+4. 推送时用户名填 `2q366`，**密码填那串 token**（不是登录密码！）
 
 ---
 
@@ -100,16 +113,35 @@ git diff            # 具体改了哪几行（红色是删的，绿色是加的�
 - [x] 写好 `.gitignore`（自动忽略 target/、.idea/ 这些垃圾文件，不会传上去）
 - [x] 完成**第 1 次提交**（11 个文件，460 行），提交号 `96e24c2`
 - [x] 配好 git 身份（2q366 / 2685482839@qq.com）
-- [x] 生成 SSH 密钥（公钥已复制到剪贴板）
+- [x] 生成 SSH 密钥（ed25519），并**配好 `~/.ssh/config`**（GitHub 和 Gitee 都已写好，自动用这把钥匙）
+- [x] 修好私钥文件权限（Windows 上权限不对 ssh 会拒绝用这把钥匙）
+- [x] 实测确认：**你这台机器 SSH 通、HTTPS 到 github.com 不稳**，所以手册全部改成 SSH 路线
 
 ## 七、还差你自己做的 3 件事
 
-1. **加 SSH 公钥到 GitHub**（第三节方式 A 第 2 步）
-2. **在 GitHub 网页建一个空仓库**，名字建议 `java-practice`，**不要**勾选 "Add a README"（勾了会冲突）
-   → 建好后把地址发我，或自己执行：
+1. **把 SSH 公钥加到 GitHub**
+   打开 https://github.com/settings/keys → New SSH key → 粘贴这一整行：
+   ```
+   ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO6spF4NiNISdz0VB7P3vlUGRKC4m117RcAd9f//M2+V 2685482839@qq.com
+   ```
+   加完回来在 PowerShell 里测：`ssh -T git@github.com`
+   看到 `Hi 2q366! You've successfully authenticated` 就成了。
+
+2. **在 GitHub 网页建一个空仓库**，名字建议 `java-practice`
+   ⚠️ **不要勾 "Add a README file"**（勾了会和你本地的冲突，第一次推会很麻烦）
+   建好后执行：
    ```powershell
    cd E:\DSH工作区\Java练习
    git remote add origin git@github.com:2q366/java-practice.git
    git push -u origin main
    ```
-3. **Gitee 也注册一个**，同样加公钥（公钥直接粘同一行）
+
+3. **Gitee 也注册**（https://gitee.com），加同一把公钥（https://gitee.com/profile/sshkeys），
+   然后同样建仓库并推送：
+   ```powershell
+   git remote add gitee git@gitee.com:你的Gitee用户名/java-practice.git
+   git push -u gitee main
+   ```
+   Gitee 的 HTTPS 是通的，如果 SSH 嫌麻烦，Gitee 也可以用 HTTPS。
+
+> 做完第 1、2 步以后，你每天就只用记三件事：`git add -A` → `git commit -m "说明"` → `git push`。
