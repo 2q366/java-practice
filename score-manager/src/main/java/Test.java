@@ -44,16 +44,22 @@ public class Test {
         }
         System.out.println(max + " " + second);
 
-        int n = 97;
-        int m = 0;
+        int n = 4;
+        boolean isPrime = true;
+        if(n <= 1){
+            isPrime = false;
+        }
         for(int i = 2;i <= n-1;i++){
-            m = i;
+            if (n % i == 0) {
+                isPrime = false;
+                break;
+            }
         }
-        if(n % m == 0){
-            System.out.println("不是质数");
-        }
-        else{
+        if(isPrime == true){
             System.out.println("是质数");
+        }
+        if(isPrime == false){
+            System.out.println("不是质数");
         }
     }
 }
