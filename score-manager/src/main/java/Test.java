@@ -1,6 +1,6 @@
 public class Test {
     public static void main(String[] args){
-        int a = 1,b = 1;
+/*        int a = 1,b = 1;
         System.out.print(a + " " + b + " ");
         for (int i = 0;i <= 17;i++){
             int c = a + b;
@@ -10,7 +10,7 @@ public class Test {
         }
         System.out.println();
 
-/*        for(int i = 1;i <= 100;i++){
+        for(int i = 1;i <= 100;i++){
             if(i % 2 == 0){
                 System.out.print(i + " ");
             }
@@ -71,5 +71,9 @@ public class Test {
         if(isPrime == false){
             System.out.println("不是质数");
         }*/
+        int n = 20;
+        for(int i = 1;i <= n;i++){
+            
+        }
     }
 }
