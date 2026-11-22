@@ -1,5 +1,5 @@
 public class Test {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 /*        int a = 1,b = 1;
         System.out.print(a + " " + b + " ");
         for (int i = 0;i <= 17;i++){
@@ -117,15 +117,28 @@ public class Test {
             e = v;
         }*/
 
-        int[] a = {5,2,9,1,7,3};
-        int x = 0;
-        int y = 0;
-        for(int i = 0;i < a.length;i++){
-            x = a[i];
-            for (int j = 1;j < a.length;j++){
-                if (a[j] > a[j-1]) a[i] = a[j];
+        int[] a = {5, 2, 9, 3, 1, 7};
+        /*int x;
+        x = a[5];
+        a[5] = a[2];
+        a[2] = a[3];
+        a[3] = a[0];
+        a[0] = a[4];
+        a[4] = x;
+        for(int i : a){
+            System.out.print(i + " ");
+        }*/
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 1; j < a.length; j++) {
+                int x = a[j];
+                if (a[j] < a[j - 1]) {
+                    a[j] = a[j - 1];
+                    a[j - 1] = x;
+                }
             }
         }
-        System.out.print(y + " " + x);
+        for (int i : a) {
+            System.out.print(i + " ");
+        }
     }
 }
