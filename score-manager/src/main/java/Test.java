@@ -70,7 +70,7 @@ public class Test {
         }
         if(isPrime == false){
             System.out.println("不是质数");
-        }*/
+        }
         //输出指定项
         int n = 20;
         int a = 1,b = 1;
@@ -90,7 +90,6 @@ public class Test {
         }
         System.out.println(sum + 2);
 
-        //不超过1000
         double x = 1,y = 1;
         double z = 0;
         double m = 0;
@@ -104,11 +103,11 @@ public class Test {
             }
         }
         System.out.println();
-
+        //不超过1000
         int q = 1,e = 1;
         System.out.print(q + " " + e + " ");
         int v = 0;
-        while (v < 1000){
+        while (true){//v < 1000){
             v = q + e;
             if (v >= 1000){
                 break;
@@ -116,6 +115,17 @@ public class Test {
             System.out.print(v + " ");
             q = e;
             e = v;
+        }*/
+
+        int[] a = {5,2,9,1,7,3};
+        int x = 0;
+        int y = 0;
+        for(int i = 0;i < a.length;i++){
+            x = a[i];
+            for (int j = 1;j < a.length;j++){
+                if (a[j] > a[j-1]) a[i] = a[j];
+            }
         }
+        System.out.print(y + " " + x);
     }
 }
