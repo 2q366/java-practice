@@ -104,18 +104,18 @@ public class Test {
             }
         }
         System.out.println();
-        int i = 1;
-        while (i <= n){
-            z = x + y;
-            i = i + 1;
-            x = y;
-            y = z;
-            if(z < 1000){
-                System.out.print(z + " ");
-            }
-            else{
+
+        int q = 1,e = 1;
+        System.out.print(q + " " + e + " ");
+        int v = 0;
+        while (v < 1000){
+            v = q + e;
+            if (v >= 1000){
                 break;
             }
+            System.out.print(v + " ");
+            q = e;
+            e = v;
         }
     }
 }
