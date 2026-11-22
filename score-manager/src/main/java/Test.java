@@ -91,24 +91,31 @@ public class Test {
         System.out.println(sum + 2);
 
         //不超过1000
-        double x = 1.0,y = 1.0;
-        double z = 0.0;
-        double m = 0.0;
-        for(int i = 1;1 <= n-2;i++){
+        double x = 1,y = 1;
+        double z = 0;
+        double m = 0;
+        for(int i = 1;i <= n-2;i++){
             z = x + y;
             x = y;
             y = z;
-            if(z > 1000){
-                break;
-            }
             if(i <= 15){
                 m = y / x;
+                System.out.print(m + " ");
+            }
+        }
+        System.out.println();
+        int i = 1;
+        while (i <= n){
+            z = x + y;
+            i = i + 1;
+            x = y;
+            y = z;
+            if(z < 1000){
+                System.out.print(z + " ");
             }
             else{
                 break;
             }
         }
-        System.out.println(m);
-        System.out.println(x);
     }
 }
