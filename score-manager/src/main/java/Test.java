@@ -71,9 +71,44 @@ public class Test {
         if(isPrime == false){
             System.out.println("不是质数");
         }*/
+        //输出指定项
         int n = 20;
-        for(int i = 1;i <= n;i++){
-            
+        int a = 1,b = 1;
+        int c = 0;
+        int sum =0;
+        for(int i = 1;i <= n-2;i++){
+            c = a + b;
+            a = b;
+            b = c;
+            sum += c;
         }
+        if (n <= 2){
+            System.out.println(a);
+        }
+        else{
+            System.out.println(c);
+        }
+        System.out.println(sum + 2);
+
+        //不超过1000
+        double x = 1.0,y = 1.0;
+        double z = 0.0;
+        double m = 0.0;
+        for(int i = 1;1 <= n-2;i++){
+            z = x + y;
+            x = y;
+            y = z;
+            if(z > 1000){
+                break;
+            }
+            if(i <= 15){
+                m = y / x;
+            }
+            else{
+                break;
+            }
+        }
+        System.out.println(m);
+        System.out.println(x);
     }
 }
