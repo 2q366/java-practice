@@ -128,10 +128,10 @@ public class Test {
         for(int i : a){
             System.out.print(i + " ");
         }*/
-        for (int i = 0; i < a.length; i++) {
-            for (int j = 1; j < a.length; j++) {
-                int x = a[j];
+        for (int i = 0; i < a.length-1; i++) {
+            for (int j = 1; j < a.length-i; j++) {
                 if (a[j] < a[j - 1]) {
+                    int x = a[j];
                     a[j] = a[j - 1];
                     a[j - 1] = x;
                 }
