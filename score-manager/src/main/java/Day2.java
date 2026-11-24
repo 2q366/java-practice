@@ -25,22 +25,33 @@ public class Day2 {
         // 提示：String / int / double / char / boolean 各一个
         // 写完打印：我叫XX，今年XX岁，身高X.XX米，性别X，是在校学生。
         // TODO 1：在这里写你的 5 个变量
-
-
+        String name = "陈喻涛";
+        int age = 20;
+        double height = 1.75;
+        char xing = '男';
+        boolean xiao = true;
+        System.out.println("我叫"+ name +"，今年"+ age +"岁，身高"+ height +"米，性别"+ xing +"，是在校学生");
         // ---------- 题 2：把 5 个错名字改对 ----------
         // 原题：
-        //   int 2score = 90;
+        // int 2score = 90;
         //   int class = 3;
         //   int my-score = 88;
-        //   String studentname = "张三";
+        //   String studentname1 = "张三";
         //   int MAX = 100;
         // TODO 2：在这里写改对后的 5 行，每行后面用 // 注释写「原来错在哪」
-
+        int score2 = 90;//标识符不能以数字开头
+        int Class = 3;//标识符不能是关键字
+        int my_score = 88;//标识符不能有-
+        String studentName1 = "张三";//第二个单词要大写，上面已经定义了studentName,所以改成了studentName1
+        final int MAX = 100;//全大写表示常量,要加final
+        System.out.println(score2 +" "+ Class +" "+ my_score +" "+ studentName1 +" "+ MAX);
 
         // ---------- 题 3：三科成绩求总分和平均分 ----------
         // 要求：平均分要带小数（想想怎么避开整数除法）
         // TODO 3：在这里写
-
-
+        double m = 88,n = 89,i = 90;
+        double num = m + n + i;
+        double avg = num / 3;
+        System.out.println(num +" "+ avg);
     }
 }
