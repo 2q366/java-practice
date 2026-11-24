@@ -19,13 +19,13 @@ public class Day1test {
         else {
             System.out.println("应找你：");
             System.out.println("50元：" + z / 50 + "张");
-            if(z / 50 >= 1) z = z - 50 * (z / 50);
+            z = z - 50 * (z / 50);
             System.out.println("20元：" + z / 20 + "张");
-            if(z / 20 >= 1) z = z - 20 * (z / 20);
+            z = z - 20 * (z / 20);
             System.out.println("10元：" + z / 10 + "张");
-            if(z / 10 >= 1) z = z - 10 * (z / 10);
+            z = z - 10 * (z / 10);
             System.out.println("5元：" + z / 5 + "张");
-            if(z / 5 >= 1) z = z - 5 * (z / 5);
+            z = z - 5 * (z / 5);
             System.out.println("1元：" + z + "张");
         }
     }
