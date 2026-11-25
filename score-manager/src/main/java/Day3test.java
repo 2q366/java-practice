@@ -21,5 +21,9 @@ public class Day3test {
         System.out.println(x / 100);
         System.out.println((x / 10) % 10);
         System.out.println(x % 10);*/
+        System.out.println(7 % 3);
+         System.out.println(-7 % 3);
+         System.out.println(7 % -3);
+         System.out.println(-7 % -3);
     }
 }

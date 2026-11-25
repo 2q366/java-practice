@@ -5,7 +5,7 @@ public class Day3 {
 
         // ============ 第 1 段：键盘录入（P26） ============
         Scanner sc = new Scanner(System.in);
-
+/*
         System.out.print("请输入你的年龄：");
         int age = sc.nextInt();
         System.out.println("你今年 " + age + " 岁");
@@ -20,15 +20,23 @@ public class Day3 {
 
         // 想得到 3.5，必须让其中一边变成小数
         System.out.println("真除法 = " + ((double) a / b));
-
+*/
         // ============ 第 3 段：今天的 3 道题，在下面写 ============
 
         // ---------- 题 1：四则运算计算器 ----------
         // 用 Scanner 读两个整数，输出 + - * / % 五个结果
         // 要求：/ 保留 2 位小数
         // TODO 1：在这里写
-        
-
+        System.out.print("请输入第一个数：");
+        double x = sc.nextDouble();
+        System.out.print("请输入第二个数：");
+        double y = sc.nextDouble();
+        System.out.println(x + y);
+        System.out.println(x - y);
+        System.out.println(x * y);
+        System.out.printf("%.2f",x / y);
+        System.out.println();
+        System.out.println(x % y);
 
         // ---------- 题 2：负数取余（先猜再运行） ----------
         // 把下面四行先写成注释猜答案，再取消注释运行对答案
@@ -37,13 +45,18 @@ public class Day3 {
         // System.out.println(7 % -3);
         // System.out.println(-7 % -3);
         // TODO 2：在这里写
+        //1,-1,-1,1  注：视频没讲负数的运算
 
 
         // ---------- 题 3：三位数拆位 ----------
         // 读一个三位数，拆出百位、十位、个位
         // 只能用 / 和 %，不许用字符串
         // TODO 3：在这里写
-
+        System.out.println("请输入一个三位数：");
+        int z = sc.nextInt();
+        System.out.println(z / 100);
+        System.out.println((z / 10) % 10);
+        System.out.println(z % 10);
 
     }
 }
