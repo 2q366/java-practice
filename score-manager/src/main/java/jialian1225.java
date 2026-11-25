@@ -70,10 +70,10 @@ public class jialian1225 {
         System.out.print("请输入一个整数：");
         int b1 = sc.nextInt();
         boolean b2;
-        //if (b1 % 3 == 0 && b1 % 5 == 0) b2 = true;//我觉得这个方便，因为更容易明白是什么条件
-        //else b2 = false;
-        if ((b1 % 3) % 5 == 0) b2 = true;
+        if (b1 % 3 == 0 && b1 % 5 == 0) b2 = true;//我觉得这个方便，因为更容易明白是什么条件
         else b2 = false;
+        //if (b1 % 15 == 0) b2 = true;
+        //else b2 = false;
         System.out.println((b2 ? "此数能同时被3和5整除" : "此不数能同时被3和5整除"));
         //B1
         Animal a1 = new Cat();
@@ -86,14 +86,8 @@ public class jialian1225 {
         } //不会在循环中调用方法
         //B2
         Shape[] w = {new Rect(3,4),new Circle(2),new Rect(5,5)};
-        w[0].area();
-        w[0].name();
         System.out.println(w[0].name() + "的面积是" + w[0].area());
-        w[1].area();
-        w[1].name();
         System.out.println(w[1].name() + "的面积是" + w[1].area());
-        w[2].area();
-        w[2].name();
         System.out.println(w[2].name() + "的面积是" + w[2].area());
         System.out.println("总面积是：" + (w[0].area() + w[1].area() + w[2].area()) + "，平均面积是：" + (w[0].area() + w[1].area() + w[2].area()) / 3);
         Shape max = w[0];
