@@ -27,6 +27,10 @@ class Shape{
 }
 class Rect extends Shape{
     double w,h;
+    public Rect(double w,double h){
+        this.w = w;
+        this.h = h;
+    }
     @Override
     public double area(){
         return (w * h);
@@ -68,56 +72,58 @@ public class jialian1225 {
         boolean b2;
         //if (b1 % 3 == 0 && b1 % 5 == 0) b2 = true;//我觉得这个方便，因为更容易明白是什么条件
         //else b2 = false;
-        if (b1 % (3 * 5) == 0) b2 = true;
+        if ((b1 % 3) % 5 == 0) b2 = true;
         else b2 = false;
         System.out.println((b2 ? "此数能同时被3和5整除" : "此不数能同时被3和5整除"));
         //B1
-        /*Animal a1 = new Cat();
+        Animal a1 = new Cat();
         Animal a2 = new Dog();
         a1.say();
         a2.say();
-        String[] Animal = {"a1","a2","animal"};
-        for (String a3 : Animal){
-            System.out.println(a3.say());
-        }*/ //不会在循环中调用方法
+        Animal[]  zoo = {new Dog(),new Cat(),new Animal()};
+        for (Animal a3 : zoo){
+            a3.say();
+        } //不会在循环中调用方法
         //B2
-        String[] Shape = {"长方形(3,4)","圆(2)","长方形(5,5)"};
-        Shape x1 = new Rect();
-        x1.area();
-        x1.name();
-        System.out.println(x1.name() + "的面积是" + x1.area());
-        Shape x2 = new Circle(2);
-        x2.area();
-        x2.name();
-        System.out.println(x2.name() + "的面积是" + x2.area());
-        Shape x3 = new Rect();
-        x3.area();
-        x3.name();
-        System.out.println(x3.name() + "的面积是" + x3.area());
-        System.out.println("总面积是：" + (x1.area() + x2.area() + x3.area()) + "，平均面积是：" + (x1.area() + x2.area() + x3.area()) / 3);
-        double y;
-        if (x1.area() > x2.area()){
-            y = x1.area();
-            if (x1.area() > x3.area()){
-                y = x1.area();
-                System.out.println("面积最大的是：" + x1.name() + " 面积为：" + y);
+        Shape[] w = {new Rect(3,4),new Circle(2),new Rect(5,5)};
+        w[0].area();
+        w[0].name();
+        System.out.println(w[0].name() + "的面积是" + w[0].area());
+        w[1].area();
+        w[1].name();
+        System.out.println(w[1].name() + "的面积是" + w[1].area());
+        w[2].area();
+        w[2].name();
+        System.out.println(w[2].name() + "的面积是" + w[2].area());
+        System.out.println("总面积是：" + (w[0].area() + w[1].area() + w[2].area()) + "，平均面积是：" + (w[0].area() + w[1].area() + w[2].area()) / 3);
+        Shape max = w[0];
+        for (int i = 0;i <= 2;i++){
+            if (max.area() < w[i].area()) max = w[i];
+        }
+        System.out.printf("%s的面积最大为%.2f", max.name(),max.area());
+        /*double y;
+        if (w[0].area() > w[1].area()){
+            y = w[0].area();
+            if (w[0].area() > w[0].area()){
+                y = w[0].area();
+                System.out.println("面积最大的是：" + w[0].name() + " 面积为：" + y);
             }
             else {
-                y = x3.area();
-                System.out.println("面积最大的是：" + x3.name() + " 面积为：" + y);
+                y = w[2].area();
+                System.out.println("面积最大的是：" + w[2].name() + " 面积为：" + y);
             }
         }
         else {
-            y = x2.area();
-            if (x2.area() > x3.area()){
-                y = x2.area();
-                System.out.println("面积最大的是：" + x2.name() + " 面积为：" + y);
+            y = w[1].area();
+            if (w[1].area() > w[2].area()){
+                y = w[1].area();
+                System.out.println("面积最大的是：" + w[1].name() + " 面积为：" + y);
             }
             else {
-                y = x3.area();
-                System.out.println("面积最大的是：" + x3.name() + " 面积为：" + y);
+                y = w[2].area();
+                System.out.println("面积最大的是：" + w[2].name() + " 面积为：" + y);
             }
-        }
+        }*/
         //B3
         //①Dog类s大写了，重写不能改变方法名。声明不变，重新实现
         //②Dog没有继承父类，不能用重写
