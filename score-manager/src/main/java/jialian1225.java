@@ -1,4 +1,4 @@
-import java.util.Scanner;
+/*import java.util.Scanner;
 class Animal{
     public void say(){
         System.out.println("动物叫");
@@ -95,7 +95,7 @@ public class jialian1225 {
             if (max.area() < w[i].area()) max = w[i];
         }
         System.out.printf("%s的面积最大为%.2f", max.name(),max.area());
-        /*double y;
+        double y;
         if (w[0].area() > w[1].area()){
             y = w[0].area();
             if (w[0].area() > w[0].area()){
@@ -117,11 +117,11 @@ public class jialian1225 {
                 y = w[2].area();
                 System.out.println("面积最大的是：" + w[2].name() + " 面积为：" + y);
             }
-        }*/
+        }
         //B3
         //①Dog类s大写了，重写不能改变方法名。声明不变，重新实现
         //②Dog没有继承父类，不能用重写
         //③Dog类的数据类型和父类不一样
         //④private是私有方法，不能被继承
     }
-}
+}*/
