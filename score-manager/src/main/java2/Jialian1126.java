@@ -1,4 +1,4 @@
-import java.util.Scanner;
+/*import java.util.Scanner;
 abstract class Fu{
     abstract int fu(int x);
 }
@@ -42,4 +42,4 @@ public class Jialian1126 {
         System.out.println(f + 'e' + "块钱");
         System.out.println(f + "" + 'e' + "块钱");
     }
-}
+}*/
