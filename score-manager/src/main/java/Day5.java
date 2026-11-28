@@ -24,13 +24,13 @@ public class Day5 {
         System.out.println("x += 5 -> " + x);
         // TODO: 接着写 x -= 3; x *= 2; x /= 5; x %= 3; 每步都打印
         x -= 3;//12
-        System.out.println("x -= 3 ->" + x);
+        System.out.println("x -= 3 -> " + x);
         x *= 2;//24
-        System.out.println("x *= 2 ->" + x);
+        System.out.println("x *= 2 -> " + x);
         x /= 5;//4
-        System.out.println("x /= 5 ->" + x);
+        System.out.println("x /= 5 -> " + x);
         x %= 3;//1
-        System.out.println("x %= 3 ->" + x);
+        System.out.println("x %= 3 -> " + x);
 
         // TODO: short 实验
         // short s = 10; s += 5; 打印 s
@@ -52,6 +52,6 @@ public class Day5 {
         System.out.println(score >= 60);//true
         System.out.println(score == 100);//false
         System.out.println(score >= 60 ? "及格" : "不及格");
-        System.out.println("'a' < 'b' -> " + ('a' < 'b') + " 'A' == 65 ->" + ('A' == 65));
+        System.out.println("'a' < 'b' -> " + ('a' < 'b') + " 'A' == 65 -> " + ('A' == 65));
     }
 }
